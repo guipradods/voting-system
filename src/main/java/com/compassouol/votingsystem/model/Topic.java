@@ -1,6 +1,7 @@
 package com.compassouol.votingsystem.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Data
 @Entity
+@Builder
 public class Topic {
 
     @Id
