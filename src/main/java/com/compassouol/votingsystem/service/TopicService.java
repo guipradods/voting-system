@@ -15,11 +15,10 @@ public class TopicService {
     private final TopicRepository topicRepository;
     private final TopicBuilder topicBuilder;
 
-    public Topic createTopic(TopicDTO topicDTO) {
+    public void createTopic(TopicDTO topicDTO) {
 
         var newTopic = topicBuilder.topicDtoToEntity(topicDTO);
         topicRepository.save(newTopic);
-        return newTopic;
 
     }
 
