@@ -49,7 +49,7 @@ public class VoteUtil {
             if ((dig10 == voteDTO.getDocument().charAt(9)) && (dig11 == voteDTO.getDocument().charAt(10)))
                 return(true);
             else return(false);
-        } catch (InputMismatchException erro) {
+        } catch (InputMismatchException error) {
             return(false);
         }
     }
