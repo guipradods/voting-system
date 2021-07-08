@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class TopicBuilder {
 
     public Topic topicDtoToEntity(TopicDTO topicDTO) {
-        return Topic.builder().description(topicDTO.getDescription()).build();
+        return Topic.builder().description(topicDTO.getDescription()).isOpen(false).build();
     }
 
 }

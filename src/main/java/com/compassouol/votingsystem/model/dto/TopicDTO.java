@@ -12,5 +12,6 @@ public class TopicDTO {
 
     @NotNull
     private String description;
+    private Boolean isOpen;
 
 }

@@ -8,11 +8,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class AssociateDTO {
+public class VoteDTO {
 
     @NotNull
-    private String name;
+    private String vote;
     @NotNull
     private String document;
+    @NotNull
+    private Long topic;
 
 }
