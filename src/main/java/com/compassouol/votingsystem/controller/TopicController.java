@@ -27,4 +27,12 @@ public class TopicController {
         }
     }
 
+    @PutMapping("/open-session/{id}")
+    public ResponseEntity openVoteSession(@PathVariable Long id) throws InterruptedException {
+
+        topicService.openSession(id);
+        return ResponseEntity.ok().build();
+
+    }
+
 }

@@ -3,6 +3,7 @@ package com.compassouol.votingsystem.service;
 import com.compassouol.votingsystem.builder.VoteBuilder;
 import com.compassouol.votingsystem.exception.DocumentAlreadyVotedException;
 import com.compassouol.votingsystem.exception.InvalidDocumentException;
+import com.compassouol.votingsystem.exception.TopicClosedException;
 import com.compassouol.votingsystem.exception.TopicNotFoundException;
 import com.compassouol.votingsystem.model.Topic;
 import com.compassouol.votingsystem.model.dto.VoteDTO;
@@ -22,6 +23,7 @@ public class VoteService {
     private final VoteRepository voteRepository;
     private final VoteBuilder voteBuilder;
     private final TopicRepository topicRepository;
+    private final TopicService topicService;
 
     public void mountVote(VoteDTO voteDTO) {
 
@@ -31,22 +33,19 @@ public class VoteService {
             throw new InvalidDocumentException();
         }
 
-        vote.setTopic(this.findTopic(voteDTO.getTopic()).orElseThrow(TopicNotFoundException::new));
+        vote.setTopic(topicService.findTopic(voteDTO.getTopic()).orElseThrow(TopicNotFoundException::new));
 
         if (this.checkDocumentVoted(voteDTO.getDocument(), voteDTO.getTopic())) {
             throw new DocumentAlreadyVotedException();
         }
 
+        var topic = topicRepository.findById(vote.getTopic().getId());
+        if (!topicService.checkTopicIsOpen(topic.get())) {
+            throw new TopicClosedException();
+        }
+
         voteRepository.save(vote);
 
-    }
-
-    public Optional<Topic> findTopic(Long topic_id) {
-        return topicRepository.findById(topic_id);
-    }
-
-    public Boolean checkTopicExists(Long topic_id) {
-        return topicRepository.findById(topic_id).isPresent();
     }
 
     public Boolean checkDocumentVoted(String document, Long topic_id) {
