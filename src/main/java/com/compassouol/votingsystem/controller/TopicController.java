@@ -35,4 +35,11 @@ public class TopicController {
 
     }
 
+    @PutMapping("/result/{id}")
+    public ResponseEntity showResult(@PathVariable Long id) {
+
+        return null;
+
+    }
+
 }
