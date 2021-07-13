@@ -4,6 +4,7 @@ import com.compassouol.votingsystem.model.dto.TopicDTO;
 import com.compassouol.votingsystem.service.TopicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,7 +39,9 @@ public class TopicController {
     @PutMapping("/result/{id}")
     public ResponseEntity showResult(@PathVariable Long id) {
 
-        return null;
+        var yesVotes = topicService.showYesVotes(id);
+        var noVotes = topicService.showNoVotes(id);
+        return ResponseEntity.ok().body("Sim: " + yesVotes + "\n" + "Não: " + noVotes);
 
     }
 
