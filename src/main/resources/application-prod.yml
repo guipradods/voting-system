@@ -6,9 +6,9 @@ spring:
       max-lifetime: 1800000
       idle-timeout: 600000
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/
-    username: postgres
-    password: 'WjJkbA=='
+    url: jdbc:postgresql://ec2-52-6-77-239.compute-1.amazonaws.com:5432/d18jf1b0pqv2l4
+    username: vdxpjruibufpze
+    password: 'f9d91f0bf830b83b6b72fe75fa708e9f6aa15cf16fb427bcbfa0d943c4ea5cea'
     continueOnError: true
     initialSize: 0
     timeBetweenEvictionRunsMillis: 5000
