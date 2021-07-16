@@ -2,6 +2,7 @@
 
 Aplicação backend feita utilizando Java 11 e Postgresql.
 Apresenta as seguintes funcionalidades: Criar uma pauta, abrir sessão de votação, votar e mostrar o resultado da pauta.
+As credenciais do banco de dados se encontram na pasta /src/main/resources/application-prod.yml
 
 ## Criar uma Pauta
 
