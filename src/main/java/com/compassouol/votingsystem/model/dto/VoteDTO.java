@@ -1,5 +1,6 @@
 package com.compassouol.votingsystem.model.dto;
 
+import com.compassouol.votingsystem.model.enums.VoteEnum;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class VoteDTO {
 
     @NotNull
-    private String vote;
+    private VoteEnum vote;
     @NotNull
     private String document;
     @NotNull
