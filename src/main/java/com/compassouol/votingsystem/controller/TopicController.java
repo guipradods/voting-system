@@ -35,7 +35,7 @@ public class TopicController {
 
     }
 
-    @PutMapping("/result/{id}")
+    @GetMapping("/result/{id}")
     public ResponseEntity showResult(@PathVariable Long id) {
 
         var yesVotes = topicService.showYesVotes(id);
